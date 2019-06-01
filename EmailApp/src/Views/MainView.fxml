@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="204.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-            <Pane prefHeight="207.0" prefWidth="353.0" BorderPane.alignment="CENTER">
-               <children>
-                  <TextField layoutX="28.0" layoutY="69.0" promptText="Username" />
-                  <TextField layoutX="28.0" layoutY="113.0" promptText="Password" />
-                  <Text layoutX="23.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type Username and Password" />
-                  <Button layoutX="28.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="148.0" text="Login" />
-               </children>
-            </Pane>
-         </center>
-      </BorderPane>
+            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Topic" />
+                <TableColumn prefWidth="80.66667938232422" text="From" />
+                  <TableColumn prefWidth="85.3333740234375" text="Date" />
+                  <TableColumn prefWidth="235.9999542236328" text="Content" />
+              </columns>
+            </TableView>
+         </center></BorderPane>
    </center>
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar fx:id="menuBar">
+              <menus>
+                <Menu fx:id="SettingsMenu" mnemonicParsing="false" text="Settings">
+                     <items>
+                        <MenuItem fx:id="UserSettingsMenuItem" mnemonicParsing="false" onAction="#ShowUserSettingView" text="User Settings" />
+                        <MenuItem fx:id="AdminSettingsMenuItem" mnemonicParsing="false" onAction="#ShowAdminView" text="Admin Settings" />
+                     </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
 </BorderPane>
