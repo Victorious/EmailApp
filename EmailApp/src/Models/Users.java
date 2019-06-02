@@ -8,6 +8,7 @@ public class Users {
 	String firstname;
 	String lastname;
 	String Email;
+	String userType;
 	
 	public int getId() {
 		return id;
@@ -45,4 +46,11 @@ public class Users {
 	public void setEmail(String email) {
 		Email = email;
 	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+	
 }
