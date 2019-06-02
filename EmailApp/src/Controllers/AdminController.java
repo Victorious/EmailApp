@@ -17,10 +17,12 @@ public class AdminController {
 	
 //	Variables
 	
+//	Updating users data
 	public void UpdateUserData() {
 		
 	}
 	
+//	Updating users password
 	public void UpdateUserPassword() {
 		
 	}
