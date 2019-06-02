@@ -26,5 +26,4 @@ public class AdminController {
 	public void UpdateUserPassword() {
 		
 	}
-	
 }
