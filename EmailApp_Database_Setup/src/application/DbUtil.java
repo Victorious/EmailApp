@@ -18,7 +18,7 @@ public class DbUtil {
 	
 	private static Connection Connection() {
 		try {
-			con = DriverManager.getConnection(dbHost + dbName, user, pass);
+			con = DriverManager.getConnection(dbHost, user, pass);
 			statm = con.createStatement();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
