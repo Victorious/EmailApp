@@ -12,12 +12,12 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="emailTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="75.0" text="Topic" />
-                <TableColumn prefWidth="80.66667938232422" text="From" />
-                  <TableColumn prefWidth="85.3333740234375" text="Date" />
-                  <TableColumn prefWidth="235.9999542236328" text="Content" />
+                <TableColumn fx:id="emailTopicColumn" prefWidth="75.0" text="Topic" />
+                <TableColumn fx:id="emailFromColumn" prefWidth="80.66667938232422" text="From" />
+                  <TableColumn fx:id="emailDateColumn" prefWidth="85.3333740234375" text="Date" />
+                  <TableColumn fx:id="emailContentColumn" prefWidth="235.9999542236328" text="Content" />
               </columns>
             </TableView>
          </center></BorderPane>

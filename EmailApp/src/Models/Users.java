@@ -1,14 +1,27 @@
 package Models;
 
+import java.util.ArrayList;
+
 public class Users {
 	
+	static ArrayList<Users> currentUserList = new ArrayList<>();
 	int id;
-	String userame;
+	int userType;
+	String username;
 	String password;
 	String firstname;
 	String lastname;
-	String Email;
-	String userType;
+	String email;
+
+	public Users(int id, int userType, String username, String password, String firstname, String lastname, String email) {
+		this.id = id;
+		this.userType = userType;
+		this.username = username;
+		this.password = password;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+	}
 	
 	public int getId() {
 		return id;
@@ -16,11 +29,11 @@ public class Users {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUserame() {
-		return userame;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserame(String userame) {
-		this.userame = userame;
+	public void setUsername(String userame) {
+		this.username = userame;
 	}
 	public String getPassword() {
 		return password;
@@ -41,16 +54,22 @@ public class Users {
 		this.lastname = lastname;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
-	public String getUserType() {
+
+	public int getUserType() {
 		return userType;
 	}
-	public void setUserType(String userType) {
+
+	public void setUserType(int userType) {
 		this.userType = userType;
 	}
-	
+
+	public static ArrayList<Users> getCurrentUserList() {
+		return currentUserList;
+	}
+
 }

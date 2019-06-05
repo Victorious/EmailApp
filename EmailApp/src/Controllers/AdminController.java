@@ -26,4 +26,9 @@ public class AdminController {
 	public void UpdateUserPassword() {
 		
 	}
+	
+//	Creating new User
+	public void CreateUser() {
+		
+	}
 }
