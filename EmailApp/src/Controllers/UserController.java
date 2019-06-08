@@ -82,7 +82,6 @@ public class UserController implements Initializable {
 		}
 	}
 	
-	
 //	Setting values on Initilizing
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -94,5 +93,4 @@ public class UserController implements Initializable {
 		confirmPassText.setVisible(false);
 		commitChangePassBtn.setVisible(false);
 	}
-	
 }

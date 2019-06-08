@@ -26,7 +26,8 @@ public class DbUtil {
 	private static Statement statm;
 	private static volatile Connection con = null;
 	ArrayList<Users> userList = new ArrayList<>();
-	ObservableList<Email> emailList = FXCollections.observableArrayList();
+	ObservableList<Users> userFXList = FXCollections.observableArrayList();
+	ObservableList<Email> emailFXList = FXCollections.observableArrayList();
 	
 //	Creating connection towards database
 	private static Connection Connection() {
@@ -61,13 +62,77 @@ public class DbUtil {
 				String emailTopic = rs.getString("email_topic");
 				String emailContent = rs.getString("email_content");
 				Date emailDate = rs.getDate("email_date");
-				emailList.add(new Email(id, userFirstname, emailTopic, emailContent, emailDate));
+				emailFXList.add(new Email(id, userFirstname, emailTopic, emailContent, emailDate));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return emailList;
+		return emailFXList;
+	}
+
+//	Update User Password
+	public void UpdateUserPassword(int id, String password) {
+		String updateUserSql = "UPDATE `users` "
+		 		+ "SET `password` = '" + password + "'" 
+		 		+ "WHERE (`id` = '" + id + "')";
+try {
+	statm.executeUpdate(updateUserSql);
+} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+	}
+	
+//	Update User
+	public void UpdateUser(int id, int usertype, String username ,String firstname, String lastname, String email) {
+		String updateUserSql = "UPDATE `users` "
+				 		+ "SET `user_type` = '" + usertype + "', "
+				 		+ "`username` = '" + username + "', "
+				 		+ "`firstname` = '" + firstname + "', "
+				 		+ "`lastname` = '" + lastname + "', "
+				 		+ "`email` = '" + email + "' "
+				 		+ "WHERE (`id` = '" + id + "')";
+		try {
+			statm.executeUpdate(updateUserSql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+//	Creating User
+	public void CreateUser(int usertype,String username, String password ,String firstname, String lastname, String email) {
+		String createUserSql = "INSERT INTO `users` (`user_type`, `username`, `password`, `firstname`, `lastname`, `email`)"
+				+ "VALUES ('" + usertype + "', '" + username + "', '" + password + "', '" + firstname + "', '" + lastname + "', '"+ email +"')";
+		
+		try {
+			statm.executeUpdate(createUserSql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+//	Getting Users to FXCollection
+	public ObservableList<Users> GetUsersFXCollection(){
+		try {
+			rs = statm.executeQuery("SELECT * FROM users");
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				int userType = rs.getInt("user_type");
+				String username = rs.getString("username");
+				String password = rs.getString("password");
+				String firstname = rs.getString("firstname");
+				String lastname = rs.getString("lastname");
+				String email = rs.getString("email");
+				userFXList.add(new Users(id, userType, username, password, firstname, lastname, email));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return userFXList;	
 	}
 	
 //	Getting Users
