@@ -61,8 +61,8 @@ public class AdminController implements Initializable {
 		for (Users user : dbUtil.getUserList()) {
 			if (usernameTextField.getText().equals(user.getUsername()) || emailTextField.getText().equals(user.getEmail())) {
 				System.out.println("error");
-				Alert createUserErrorAlert = new Alert(AlertType.INFORMATION,"Username or Email already exist. please try again.",ButtonType.CLOSE);
-				createUserErrorAlert.showAndWait();
+				Alert updateUserErrorAlert = new Alert(AlertType.INFORMATION,"Username or Email already exist. please try again.",ButtonType.CLOSE);
+				updateUserErrorAlert.showAndWait();
 				userExist = true;
 				return;
 			} else {	
